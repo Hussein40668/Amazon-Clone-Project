@@ -1,13 +1,14 @@
-import './App.css'
-import Header from './Components/Header/UpperHeader'
+import "./App.css";
+import CarouselEffect from "./Components/Carousel/CarouselEffect";
+import Header from "./Components/Header/UpperHeader";
 
 function App() {
-  
-return (
-  <>
-    <Header/>
+  return (
+    <>
+      <Header />
+      <CarouselEffect />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

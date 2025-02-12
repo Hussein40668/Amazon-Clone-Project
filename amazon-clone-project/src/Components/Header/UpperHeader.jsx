@@ -26,6 +26,7 @@ const Header = () => {
           </div>
         </div>
 
+        {/* search bar */}
         <div className={styles.search}>
           <select name="" id="">
             <option value="">All</option>
@@ -35,7 +36,6 @@ const Header = () => {
         </div>
 
         {/* right side link */}
-
         <div className={styles.order_container}>
           <a href="" className={styles.language}>
             <img src={FlagLogo} alt="flag logo" />
@@ -45,26 +45,23 @@ const Header = () => {
             </select>
           </a>
 
-          {/* three components */}
           <a href="/">
-            <p>Sign In</p>
+            <p>Hello, Sign In</p>
             <span>Account & Lists</span>
           </a>
 
-          {/* orders */}
           <a href="">
-            <p>returns</p>
+            <p>Returns</p>
             <span>& Orders</span>
           </a>
 
-          {/* carts */}
           <a href="" className={styles.cart}>
             <BiCart size={35} />
             <span>0</span>
           </a>
         </div>
       </div>
-      
+
       <LowerHeader />
     </>
   );
