@@ -13,11 +13,9 @@ const CarouselEffect = () => {
         showIndicators={false}
         showThumbs={false}
       >
-        {
-          imgList?.map((imageItemLink) => {
-          return <img src={imageItemLink} />;
-        })
-        }
+        {imgList?.map((imageItemLink, index) => {
+          return <img key={index} src={imageItemLink} alt="carousel item" />;
+        })}
       </Carousel>
       <div className={styles.hero_img}></div>
     </>

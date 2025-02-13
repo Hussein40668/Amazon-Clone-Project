@@ -1,7 +1,7 @@
 
 .category {
     height: 350px;
-    width: 350px;
+    width: 280px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -12,10 +12,8 @@
 }
 
 .category img {
-    width: 95%;
-    height: 250px;  
-    object-fit: cover; 
-    padding: 0 10px;
+    height: 200px;  
+    width: 95%
 }
 
 .category a {
