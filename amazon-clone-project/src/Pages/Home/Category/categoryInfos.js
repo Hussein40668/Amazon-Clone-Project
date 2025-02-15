@@ -1,7 +1,7 @@
-import tvImg from "../../assets/image/tv.jpg";
-import womenClothesImg from "../../assets/image/women-clothes.jpg";
-import menClothesImg from "../../assets/image/men-clothes.jpg";
-import jewelryImg from "../../assets/image/jewlery.jpg";
+import tvImg from "../../../assets/image/tv.jpg";
+import womenClothesImg from "../../../assets/image/women-clothes.jpg";
+import menClothesImg from "../../../assets/image/men-clothes.jpg";
+import jewelryImg from "../../../assets/image/jewlery.jpg";
 
 export const categoryInfos = [
   {
@@ -24,8 +24,8 @@ export const categoryInfos = [
   },
   {
     key: 4,
-    title: "Jewelry",
-    name: "jewelry",
+    title: "Jewelery",
+    name: "jewelery",
     imgLink: jewelryImg,
   },
 ];
