@@ -3,10 +3,10 @@ import styles from "./Cart.module.css"
 
 const Cart = () => {
   return (
-    <div>
-      
-    </div>
-  )
+    <section className={styles.cart}>
+      <h1>Cart Page</h1>
+    </section>
+  );
 }
 
 export default Cart

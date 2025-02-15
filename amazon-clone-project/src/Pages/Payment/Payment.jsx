@@ -3,10 +3,10 @@ import styles from "./Payment.module.css"
 
 const Payment = () => {
   return (
-    <div>
-      
-    </div>
-  )
+    <section className={styles.payment}>
+      <h1>Payment Page</h1>
+    </section>
+  );
 }
 
 export default Payment

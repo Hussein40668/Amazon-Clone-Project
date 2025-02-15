@@ -3,9 +3,9 @@ import styles from "./SignIn.module.css"
 
 const SignIn = () => {
   return (
-    <div>
-      
-    </div>
+    <section className={styles.auth}>
+      <h1>Auth Page</h1>
+    </section>
   )
 }
 
