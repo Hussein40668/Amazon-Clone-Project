@@ -31,7 +31,10 @@ const ProductDetail = () => {
 
   return (
 <>
-  {isLoading ? (<Loader />) : (<ProductCard product={product} />)}
+      {isLoading ? (<Loader />) : (<ProductCard product={product}
+        flex={true}
+        renderDescription={true}
+      />)}
 </>
    
   )
