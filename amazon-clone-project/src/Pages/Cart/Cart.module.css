@@ -22,6 +22,35 @@ padding: 10px;
 .cart hr{
     margin: 10px;
 }
+.cart_product{
+    display: flex;
+    gap: 15px;
+}
+
+.btn_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.btn_container span{
+   color: rgb(14, 16, 164);
+}
+.btn_container button{
+    padding: 5px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+}
+
+.btn_container button:hover{
+   background-color: var(--primary-color); 
+     border-radius: 10px;
+     
+    
+}
 
 .subtotal{
  padding: 20px; 
