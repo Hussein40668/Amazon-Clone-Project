@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import SharedLayout from "./Components/SharedLayout/SharedLayout";
 import Home from "./Pages/Home/Home";
-import SignIn from "./Pages/Auth/SignIn";
+import Auth from "./Pages/Auth/Auth";
 import Payment from "./Pages/Payment/Payment";
 import Orders from "./Pages/Orders/Orders";
 import Cart from "./Pages/Cart/Cart";
@@ -15,7 +15,6 @@ const Routing = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<SignIn />} />
         <Route path="/payments" element={<Payment />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/category/:categoryName" element={<Results />} />
@@ -23,7 +22,7 @@ const Routing = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<Four04 />} />
       </Route>
-    </Routes>
+      <Route path="/auth" element={<Auth />} />    </Routes>
   );
 };
 
