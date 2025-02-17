@@ -1,10 +1,60 @@
-import React from 'react'
-import styles from "./Auth.module.css"
-import {Link} from 'react-router-dom'
+import React, { useContext, useState } from "react";
+import styles from "./Auth.module.css";
+import { Link } from "react-router-dom";
+import { auth } from "../../Utility/firebase";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { DataContext } from "../../Components/DataProvider/DataProvider";
+import { Type } from "../../Utility/actionType"; 
+
 const Auth = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const [{ user }, dispatch] = useContext(DataContext);
+  console.log(user);
+
+  const authBundler = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+   // console.log(e.target.name);
+
+    try {
+      if (e.target.name === "signin") {
+
+        //  Fix incorrect string comparison
+        const userInfo = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        dispatch({
+          type: Type.SET_USER,
+          user: userInfo.user,
+        });
+      } else {
+        const userInfo = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        dispatch({
+          type: Type.SET_USER,
+          user: userInfo.user,
+        });
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      setError(err.message); // ✅ Show error to the user
+    }
+  };
+
   return (
     <section className={styles.login}>
-      {/* logo */}
+      {/* Logo */}
       <Link>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
@@ -12,36 +62,63 @@ const Auth = () => {
         />
       </Link>
 
-      {/* form */}
+      {/* Form */}
       <div className={styles.login_container}>
         <h1>Sign In</h1>
-        <form action="">
+
+        {/*  Display error message */}
+        {error && <p className={styles.error_message}>{error}</p>}{" "}
+        <form>
           <div>
             <label htmlFor="email">E-mail</label>
-            <input type="email" id="email" />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              type="email"
+              id="email"
+              required
+            />
           </div>
 
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              type="password"
+              id="password"
+              required
+            />
           </div>
 
-          {/* sign in button */}
-          <button className={styles.signin_button}>Sign In</button>
+          {/* Sign-in button */}
+          <button
+            type="submit"
+            name="signin"
+            onClick={authBundler}
+            className={styles.signin_button}
+          >
+            Sign In
+          </button>
         </form>
-
-        {/* agremment */}
+        {/* Agreement */}
         <p>
           By signing-in you agree to the AMAZON FAKE CLONE conditions of Use &
           Sale. Please see our privacy Notice, our Cookies notice and our
           Interest-Based Ads Notice.
         </p>
-
-        {/* create account button */}
-        <button className={styles.register_button}>Create Your Amazon Account</button>
+        {/* Create account button */}
+        <button
+          type="submit"
+          name="signup"
+          onClick={authBundler}
+          className={styles.register_button}
+        >
+          Create Your Amazon Account
+        </button>
       </div>
     </section>
   );
-}
+};
 
-export default Auth
+export default Auth;
