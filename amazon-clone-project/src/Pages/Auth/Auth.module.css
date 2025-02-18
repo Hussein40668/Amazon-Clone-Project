@@ -81,7 +81,7 @@
   border-radius: 5px; 
   padding: 10px;
   font-size: 14px;
-  margin: 10px 0;
+  margin: 15px 0;
   text-align: center;
   font-weight: bold;
 }
@@ -89,3 +89,4 @@
 .error_message:hover {
   background-color: #f1b0b7; 
 }
+
