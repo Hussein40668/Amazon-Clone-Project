@@ -38,9 +38,7 @@ app.post("/payment/create", async (req, res) => {
          message:"total must be greater than 0"  
        }); 
     }
-    //     console.log("payment recived", total);
-    // res.send(total)
-
+    
 })
 
 
