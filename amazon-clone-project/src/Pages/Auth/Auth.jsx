@@ -1,7 +1,7 @@
 import { ClipLoader } from "react-spinners";
 import React, { useContext, useState } from "react";
 import styles from "./Auth.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import {
   signInWithEmailAndPassword,
@@ -23,7 +23,8 @@ const Auth = () => {
   // console.log(user);
 
   const navigate = useNavigate()
-
+  const navStateData = useLocation()
+// console.log(navStateData);
 
   const authBundler = (e) => {
     e.preventDefault();
@@ -42,7 +43,7 @@ const Auth = () => {
           });
           // Stop loading after successful sign-in
           setLoading({ ...loading, signIn: false });
-          navigate("/")
+          navigate(navStateData?.state?.redirect ||"/")
         })
         .catch((err) => {
           // Set error message
@@ -65,7 +66,7 @@ const Auth = () => {
 
           // Stop loading after successful sign-up
           setLoading({ ...loading, signUp: false });
-           navigate("/");
+           navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
           // Stop loading if sign-up fails
@@ -99,6 +100,18 @@ const Auth = () => {
       {/* Form */}
       <div className={styles.login_container}>
         <h1>Sign In</h1>
+        {navStateData?.state?.msg && (
+            <small
+          style= {{
+          padding: "5px",
+          textAlign: "center",
+          color: "red",
+          fontWeight:"bold"
+          }}> 
+        {navStateData?.state?.msg} 
+        </small>
+        )}
+        
         <form>
           <div>
             <label htmlFor="email">E-mail</label>

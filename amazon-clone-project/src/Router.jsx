@@ -11,6 +11,7 @@ import PruductDetail from "./Pages/ProductDetail/ProductDetail";
 import Four04 from "./Pages/Four04/Four04";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 const stripePromise = loadStripe(
   "pk_test_51QtteMLq7orhGa2s3pZHEnuojIXTFke8TwmWiJHOv0Eg08RHwMxSl03Y3D4lRHegodk0vMewn9qkgun56rXPAWMA007iijVYGV"
@@ -24,13 +25,28 @@ const Routing = () => {
         <Route
           path="/payments"
           element={
-            <Elements stripe={stripePromise}>
-              <Payment />
-            </Elements>
+            <ProtectedRoute
+              msg={"you must log in to pay"}
+              redirect={"/payments"}
+            >
+              <Elements stripe={stripePromise}>
+                <Payment />
+              </Elements>
+            </ProtectedRoute>
           }
         />
 
-        <Route path="/orders" element={<Orders />} />
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute
+              msg={"you must log in to access your orders"}
+              redirect={"/orders"}
+            >
+              <Orders />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/category/:categoryName" element={<Results />} />
         <Route path="/products/:productId" element={<PruductDetail />} />
         <Route path="/cart" element={<Cart />} />
