@@ -9,20 +9,35 @@ import Cart from "./Pages/Cart/Cart";
 import Results from "./Pages/Results/Results";
 import PruductDetail from "./Pages/ProductDetail/ProductDetail";
 import Four04 from "./Pages/Four04/Four04";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51QtteMLq7orhGa2s3pZHEnuojIXTFke8TwmWiJHOv0Eg08RHwMxSl03Y3D4lRHegodk0vMewn9qkgun56rXPAWMA007iijVYGV"
+);
 
 const Routing = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/payments" element={<Payment />} />
+        <Route
+          path="/payments"
+          element={
+            <Elements stripe={stripePromise}>
+              <Payment />
+            </Elements>
+          }
+        />
+
         <Route path="/orders" element={<Orders />} />
         <Route path="/category/:categoryName" element={<Results />} />
         <Route path="/products/:productId" element={<PruductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<Four04 />} />
       </Route>
-      <Route path="/auth" element={<Auth />} />    </Routes>
+      <Route path="/auth" element={<Auth />} />{" "}
+    </Routes>
   );
 };
 

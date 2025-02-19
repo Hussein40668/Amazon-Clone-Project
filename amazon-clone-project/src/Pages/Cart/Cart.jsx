@@ -14,7 +14,7 @@ const Cart = () => {
   const total = basket.reduce((amount, item) => {
     return item.price * item.amount + amount;
   }, 0);
-  //console.log(basket); // show dataas an arry
+  //console.log(basket); // show data as an arry
   //console.log(total); // total amount
 
   const increment = (item) => {
