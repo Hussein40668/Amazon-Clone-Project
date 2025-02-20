@@ -1,7 +1,7 @@
 import tvImg from "../../../assets/image/tv.jpg";
 import womenClothesImg from "../../../assets/image/women-clothes.jpg";
 import menClothesImg from "../../../assets/image/men-clothes.jpg";
-import jewelryImg from "../../../assets/image/jewlery.jpg";
+import jeweleryImg from "../../../assets/image/jewlery.jpg";
 
 export const categoryInfos = [
   {
@@ -26,6 +26,6 @@ export const categoryInfos = [
     key: 4,
     title: "Jewelery",
     name: "jewelery",
-    imgLink: jewelryImg,
+    imgLink: jeweleryImg,
   },
 ];

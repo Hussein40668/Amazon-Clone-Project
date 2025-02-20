@@ -34,12 +34,16 @@
 }
 
 
-.category_list {
+.category_container {
     position: relative;
     margin-top: -10%;
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 1200px;
+    gap: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    place-items: center;
 }
+
 

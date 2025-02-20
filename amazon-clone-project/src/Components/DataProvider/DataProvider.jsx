@@ -13,4 +13,3 @@ const DataProvider = ({ children, reducer, initialState}) => {
 export default DataProvider
 
 
-// const[state, dispatch] = useReducer(reducer, initialState)

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import styles from "./Payment.module.css";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import ProductCard from "../Home/Product/ProductCard";
+import { Type } from "../../Utility/actionType";
 import {
   useStripe,
   useElements,
@@ -17,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Payment = () => {
-  const [{ user, basket }] = useContext(DataContext);
+  const [{ user, basket}, dispatch] = useContext(DataContext);
   // console.log(user);
 
   // Total Items
@@ -100,13 +101,12 @@ const Payment = () => {
         }
       );
 
-     // console.log("Order saved successfully!");
+      // console.log("Order saved successfully!");
       setProcessing(false);
-      navigate("/orders" ,{state:{msg:"you have placed new order"}})
+      navigate("/orders", { state: { msg: "you have placed new order" } });
 
-      // Step 4: Clear the basket
-     // dispatch({ type: "CLEAR_BASKET" });
-
+      // Step 4: Clear the basket  
+ dispatch({ type: Type.CLEAR_BASKET});
       // Step 5: Show success message
       //alert("Payment successful! Your order has been placed.");
     } catch (error) {

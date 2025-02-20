@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../../../Components/DataProvider/DataProvider";
 import { Type } from "../../../Utility/actionType.js";
 
-const Product = ({ product, flex, renderDescription, renderAdd }) => {
+const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
   const {
     image,
     title,
@@ -66,4 +66,4 @@ const Product = ({ product, flex, renderDescription, renderAdd }) => {
   );
 };
 
-export default Product;
+export default ProductCard;
