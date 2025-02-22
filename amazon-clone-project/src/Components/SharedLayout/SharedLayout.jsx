@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../Header/UpperHeader";
+import Header from "../Header/MainHeader";
 import { Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 
@@ -8,7 +8,7 @@ const SharedLayout = () => {
     <>
       <Header />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

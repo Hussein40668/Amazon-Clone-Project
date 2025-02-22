@@ -17,7 +17,7 @@ const Product = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
         setIsLoading(false);
       });
   }, []);

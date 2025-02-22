@@ -17,6 +17,10 @@ const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
   } = product;
   // console.log(product);
 
+  // const truncateText = (text, maxLength) => {
+  //   return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+  // };
+
   const [state, dispatch] = useContext(DataContext);
   //console.log(state);
   const addToCart = () => {
@@ -39,23 +43,34 @@ const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
         flex ? styles.product_flexed : ""
       }`}
     >
+      {/* image */}
       <Link to={`/products/${id}`}>
         <img src={image} alt={title} />
       </Link>
       <div>
+        {/* title */}
         <h3>{title}</h3>
+
+        {/* description */}
         {renderDescription && (
           <div className={styles.description}>{description}</div>
         )}
+
+        {/* rating */}
         <div className={styles.rating}>
           <Rating value={rating.rate} precision={0.1} />
 
           <small>{rating.count}</small>
         </div>
-        <div>
-          <CurrencyFormat amount={price} />
+
+        {/* price */}
+        <div className={styles.price}>
+          <h3>
+            <CurrencyFormat amount={price} />
+          </h3>
         </div>
 
+        {/* add to cart */}
         {renderAdd && (
           <button className={styles.button} onClick={addToCart}>
             add to cart

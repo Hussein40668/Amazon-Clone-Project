@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styles from "./UpperHeader.module.css";
+import styles from "./Header.module.css";
 import AmazonLogo from "../../assets/image/amazon_PNG11.png";
 import FlagLogo from "../../assets/image/flags_PNG14655.png";
 import { SlLocationPin } from "react-icons/sl";

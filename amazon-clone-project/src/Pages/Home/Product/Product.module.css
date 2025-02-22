@@ -38,6 +38,9 @@
   padding: 10px 0px;
 }
 
+.price{
+  padding: 20px;
+}
 .products_container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
