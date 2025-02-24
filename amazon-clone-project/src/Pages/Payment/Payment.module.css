@@ -64,3 +64,14 @@
     flex-direction: column;
   }
 }
+
+/* @media (max-width:768px) {
+    .product_flexed{
+        display: flex;
+        flex-direction: row ;
+    }
+} */
+  
+       
+    
+

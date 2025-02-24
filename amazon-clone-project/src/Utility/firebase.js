@@ -1,7 +1,7 @@
 // Import the functions you need from Firebase v11+
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth"; // import manually
+import { getFirestore } from "firebase/firestore"; // import manually
 
 // My Firebase configuration
 const firebaseConfig = {

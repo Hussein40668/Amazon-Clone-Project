@@ -65,14 +65,11 @@ const Cart = () => {
                 </div>
               </section>
             );
-            
-            
-             
-            
           })
         )}
       </div>
 
+      {/* Cart page part one => total sum price*/}
       {basket?.length !== 0 && (
         <div className={styles.subtotal}>
           <div>

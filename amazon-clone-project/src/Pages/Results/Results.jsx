@@ -16,7 +16,7 @@ const Results = () => {
   useEffect(() => {
      setIsLoading(true);
     axios
-      .get(`${productUrl}/${categoryName}`)
+      .get(`${productUrl}/products/category/${categoryName}`)
       .then((response) => {
         // console.log(response);
         setResults(response.data);

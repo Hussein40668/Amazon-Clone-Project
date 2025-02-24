@@ -43,6 +43,7 @@ const Payment = () => {
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("");
   };
 
+
   const handlePayment = async (e) => {
     e.preventDefault();
 
@@ -55,18 +56,19 @@ const Payment = () => {
     setCardError(null);
 
     try {
-      // Step 1: Create payment intent
+      // Step 1: Create payment intent  on functions (backend) to get client secret
       const response = await axiosInstance({
         method: "POST",
         url: `/payment/create?total=${total * 100}`,
       });
+     //console.log(response.data); // clientSecret
 
       const clientSecret = response.data?.clientSecret;
       if (!clientSecret) {
         throw new Error("Client secret not found.");
       }
 
-      // Step 2: Confirm payment
+      // Step 2: Confirm payment with card element on client side (frontend)
       const { error, paymentIntent } = await stripe.confirmCardPayment(
         clientSecret,
         {
@@ -75,6 +77,8 @@ const Payment = () => {
           },
         }
       );
+
+     // console.log(paymentIntent); // confirm payment response success
 
       if (error) {
         setCardError(error.message);
@@ -86,7 +90,7 @@ const Payment = () => {
         throw new Error("Payment not successful.");
       }
 
-      // Step 3: Save order to Firestore
+      // Step 3: Save order to Firestore database
       if (!user || !user.uid) {
         throw new Error("User not authenticated.");
       }
@@ -105,10 +109,11 @@ const Payment = () => {
       setProcessing(false);
       navigate("/orders", { state: { msg: "you have placed new order" } });
 
-      // Step 4: Clear the basket  
- dispatch({ type: Type.CLEAR_BASKET});
-      // Step 5: Show success message
-      //alert("Payment successful! Your order has been placed.");
+      // Step 4: Clear the basket after successful payment  
+      dispatch({ type: Type.CLEAR_BASKET });
+      
+      // Step 5: Show success message to user
+      alert("Payment successful! Your order has been placed.");
     } catch (error) {
       console.error("Error during payment process:", error);
       setCardError("An error occurred while processing your payment.");

@@ -65,9 +65,9 @@ const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
 
         {/* price */}
         <div className={styles.price}>
-          <h3>
+          <h5>
             <CurrencyFormat amount={price} />
-          </h3>
+          </h5>
         </div>
 
         {/* add to cart */}

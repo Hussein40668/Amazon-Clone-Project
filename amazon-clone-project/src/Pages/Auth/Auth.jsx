@@ -24,9 +24,10 @@ const Auth = () => {
 
   const navigate = useNavigate()
   const navStateData = useLocation()
-// console.log(navStateData);
+  // console.log(navStateData);
+  
 
-  const authBundler = (e) => {
+  const authHandler = (e) => {
     e.preventDefault();
     // console.log(e.target.name);
 
@@ -37,10 +38,13 @@ const Auth = () => {
       // Firebase sign-in
       signInWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
+
+          // console.log(userInfo);
           dispatch({
             type: Type.SET_USER,
             user: userInfo.user,
           });
+
           // Stop loading after successful sign-in
           setLoading({ ...loading, signIn: false });
           navigate(navStateData?.state?.redirect ||"/")
@@ -59,6 +63,7 @@ const Auth = () => {
       // Firebase sign-up (registration)
       createUserWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
+          // console.log(userInfo);
           dispatch({
             type: Type.SET_USER,
             user: userInfo.user,
@@ -71,6 +76,7 @@ const Auth = () => {
         .catch((err) => {
           // Stop loading if sign-up fails
           setLoading((prev) => ({ ...prev, signUp: false }));
+          
           // Handle different error cases
           if (err.code === "auth/email-already-in-use") {
             setError(
@@ -121,7 +127,8 @@ const Auth = () => {
               type="email"
               id="email"
               required
-            />
+            /> 
+            {/* controlled input -> input gain using set useState */}
           </div>
 
           <div>
@@ -139,7 +146,7 @@ const Auth = () => {
           <button
             type="submit"
             name="sign in"
-            onClick={authBundler}
+            onClick={authHandler}
             className={styles.signin_button}
             disabled={loading.signIn} // Prevent multiple clicks
           >
@@ -150,17 +157,19 @@ const Auth = () => {
             )}
           </button>
         </form>
+
         {/* Agreement */}
         <p>
           By signing-in you agree to the AMAZON FAKE CLONE conditions of Use &
           Sale. Please see our privacy Notice, our Cookies notice and our
           Interest-Based Ads Notice.
         </p>
+
         {/* Create account button */}
         <button
           type="submit"
           name="sign up"
-          onClick={authBundler}
+          onClick={authHandler}
           className={styles.register_button}
         >
           {loading.signUp ? (
@@ -169,6 +178,7 @@ const Auth = () => {
             "Create Your Amazon Account"
           )}
         </button>
+
         {/*  Display error message */}
         {error && <p className={styles.error_message}>{error}</p>}{" "}
       </div>
