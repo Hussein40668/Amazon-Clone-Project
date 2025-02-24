@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 2017
-  }
-})
+    port: 2017,
+  },
+  base: "/Amazon-clone/",
+  build: {
+    outDir: "dist",
+  },
+});
