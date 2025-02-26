@@ -1,16 +1,16 @@
 {
-  "homepage": "https://Hussein40668.github.io/Amazon-Clone/",
+"homepage": "https://your-github-Hussein40668.github.io/your-Amazon-Clone/",
   "name": "amazon-clone-project",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
