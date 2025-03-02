@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth"; // import manually
 import { getFirestore } from "firebase/firestore"; // import manually
+import {dotenv} from "dotenv";
+dotenv.config()  // initialize
 
 // My Firebase configuration
 const firebaseConfig = {
