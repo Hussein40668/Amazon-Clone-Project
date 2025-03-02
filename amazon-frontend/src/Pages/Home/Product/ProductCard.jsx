@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../../../Components/DataProvider/DataProvider";
 import { Type } from "../../../Utility/actionType.js";
 
-const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
+const ProductCard = ({ product, flex, renderDescription, cartAdd }) => {
   const {
     image,
     title,
@@ -16,10 +16,6 @@ const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
     description,
   } = product;
   // console.log(product);
-
-  // const truncateText = (text, maxLength) => {
-  //   return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
-  // };
 
   const [state, dispatch] = useContext(DataContext);
   //console.log(state);
@@ -47,6 +43,7 @@ const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
       <Link to={`/products/${id}`}>
         <img src={image} alt={title} />
       </Link>
+      
       <div>
         {/* title */}
         <h3>{title}</h3>
@@ -71,7 +68,7 @@ const ProductCard = ({ product, flex, renderDescription, renderAdd }) => {
         </div>
 
         {/* add to cart */}
-        {renderAdd && (
+        {cartAdd && (
           <button className={styles.button} onClick={addToCart}>
             add to cart
           </button>

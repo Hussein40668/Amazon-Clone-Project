@@ -8,7 +8,7 @@ import Loader from '../../Components/Loader/Loader'
 
 const ProductDetail = () => {
   const { productId } = useParams()
-  //console.log(productId);
+ // console.log(productId);
 
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +18,7 @@ const ProductDetail = () => {
     axios.get(`${productUrl}/products/${productId}`)
       .then((res) => {
         setProduct(res.data);
-        // console.log(res.data);
+       //  console.log(res.data);
         setIsLoading(false)
       })
       .catch((error) => {
@@ -33,7 +33,7 @@ const ProductDetail = () => {
       {isLoading ? (<Loader />) : (<ProductCard product={product}
         flex={true}
         renderDescription={true}
-        renderAdd={true}
+        cartAdd={true}
 
       />)}
 </>

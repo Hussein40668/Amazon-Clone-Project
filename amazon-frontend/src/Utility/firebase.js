@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore"; // import manually
 
 // My Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC-FHeaO6396ukp2quuZwFyNHzXEjn8oGk",
-  authDomain: "clone-e0507.firebaseapp.com",
-  projectId: "clone-e0507",
-  storageBucket: "clone-e0507.appspot.com",
-  messagingSenderId: "655021594831",
-  appId: "1:655021594831:web:9864b1654b6400aedbbfba",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 

@@ -29,10 +29,11 @@ const Product = () => {
         <Loader />
       ) : (
         <section className={styles.products_container}>
-          {products?.map((singleProduct) => (
-            <ProductCard renderAdd={true}
+          {products?.map((singleProduct, id) => (
+            <ProductCard
+              cartAdd={true}
               product={singleProduct}
-              key={singleProduct.id} />
+              key={id} />
           ))}
         </section>
         )

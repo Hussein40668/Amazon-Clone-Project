@@ -49,7 +49,7 @@ const Cart = () => {
                   product={item}
                   renderDescription={true}
                   flex={true}
-                  renderAdd={false}
+                  cartAdd={false}
                 />
 
                 <div className={styles.btn_container}>

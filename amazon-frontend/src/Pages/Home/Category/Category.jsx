@@ -6,8 +6,8 @@ import styles from "./Category.module.css"
 const Category = () => {
   return (
     <section className={styles.category_container}>
-      {categoryInfos?.map((infos) => (
-        <CategoryCard key={infos.key} data={infos} /> 
+      {categoryInfos?.map((infos , index) => (
+        <CategoryCard key={index} data={infos} /> 
       ))}
     </section>
   );

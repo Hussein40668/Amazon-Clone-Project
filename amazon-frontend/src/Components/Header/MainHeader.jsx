@@ -22,6 +22,8 @@ const Header = () => {
     <>
       <section className={styles.fixed}>
         <div className={styles.header_container}>
+
+          {/* amazon logo */}
           <div className={styles.logo_container}>
             <Link to="/">
               <img src={AmazonLogo} alt="Amazon Logo" />
